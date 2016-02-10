@@ -1,4 +1,5 @@
 @primary-border-color: #C0C0C0;
+@primary-font-color:  #858487;
 @genric-link-font-size: 20px;
 /*
 Universal reset so that border can extend all the way
@@ -41,19 +42,36 @@ a{
   }
 }
 
+.phone-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  .phone {
+    width: 300px;
+    height: 400px;
+    margin-bottom: 10px;
+  }
+}
+
+.phone-info{
+  header{
+    font-family: 'Akkurat-Light';
+    font-size: 40px;
+  }
+  .description{
+    margin-top: 20px;
+    list-style-type: none;
+    color: @primary-font-color;
+    font-family: 'Akkurat-Light';
+    > li {
+      margin-top: 5px;
+    }
+  }
+}
+
 .desktop-content{
   margin-top: 40px;
   display: flex;
   flex-direction: row;
-  .phone-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    .phone {
-      width: 300px;
-      height: 400px;
-      margin-bottom: 10px;
-    }
-  }
 }
