@@ -8,10 +8,12 @@ const less = require('gulp-less');
 const gulp = require('gulp');
 const minifyCSS = require('gulp-minify-css');
 
+const javascriptFiles = ['./js/*.js'];
+const styleFiles = ['less/*.less'];
+const assetFiles = ['./assets/*.png'];
+const buildFiles = javascriptFiles.concat(styleFiles);
+
 gulp.task('buildjs', function () {
-  const javascriptFiles = [
-    './js/*.js'
-  ];
   return gulp.src(javascriptFiles)
              .pipe(concat('index.all.js'))
              .pipe(gulp.dest('./dist/'))
@@ -21,9 +23,7 @@ gulp.task('buildjs', function () {
 });
 
 gulp.task('buildstyles', function () {
-  const styleFiles = [
-      'less/*.less'
-  ];
+
   return gulp.src(styleFiles)
         .pipe(concat('styles.all.less'))
         .pipe(less())
@@ -35,14 +35,14 @@ gulp.task('buildstyles', function () {
 });
 
 gulp.task('buildassets', function () {
-  const assetFiles = ['./assets/*.png'];
+
   gulp.src(assetFiles).pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build', ['buildjs', 'buildassets']);
+gulp.task('build', ['buildjs', 'buildassets', 'buildstyles']);
 
 gulp.task('watch', function () {
-  return gulp.watch(files, ['build']);
+  return gulp.watch(buildFiles, ['build']);
 });
 
 gulp.task('default', ['build', 'watch']);
