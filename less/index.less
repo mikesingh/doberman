@@ -2,8 +2,11 @@
 @secondary-border-color: #0086CF;
 @primary-font-color:  #C7C7C7;
 @secondary-font-color: #000000;
+@highlighted-font-color: #000000;
 @genric-link-font-size: 20px;
 @generic-link-color: #7AC0E6;
+@phone-color-primary: #C0C0C0;
+@phone-color-secondary: #ABAEB1;
 
 /*
 Universal reset so that border can extend all the way
@@ -92,8 +95,10 @@ a{
     transition: all 1s;
     -moz-transition: all 1s;
     -webkit-transition: all 1s;
+    color: @primary-font-color;
     &:hover{
       border: 1px solid @secondary-border-color;
+      color: @highlighted-font-color;
     }
     .shape{
       width: 20px;
@@ -101,8 +106,14 @@ a{
       -moz-border-radius: 10px;
       -webkit-border-radius: 10px;
       border-radius: 10px;
-      background: black;
       margin-bottom: 10px;
+      &.primary{
+        background: @phone-color-primary;
+
+      }
+      &.secondary{
+        background: @phone-color-secondary;
+      }
     }
   }
 }
