@@ -9,3 +9,7 @@ Installation
 * run `gulp`. You can also just run `gulp build`
 * run `http-server .` from the root directory in a separate tab
 * navigate to `localhost:8080` in the browser
+
+Additional notes/ future improvements
+* separate index.less into more manageable files, rather than one large files
+* use es6 to clarify ui code
