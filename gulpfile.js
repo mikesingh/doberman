@@ -34,12 +34,7 @@ gulp.task('buildstyles', function () {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('buildassets', function () {
-
-  gulp.src(assetFiles).pipe(gulp.dest('./dist/'));
-});
-
-gulp.task('build', ['buildjs', 'buildassets', 'buildstyles']);
+gulp.task('build', ['buildjs', 'buildstyles']);
 
 gulp.task('watch', function () {
   return gulp.watch(buildFiles, ['build']);
