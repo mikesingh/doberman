@@ -1,5 +1,7 @@
 @primary-border-color: #C0C0C0;
+@secondary-border-color: #1AD6FD;
 @primary-font-color:  #858487;
+@secondary-font-color: #000000;
 @genric-link-font-size: 20px;
 /*
 Universal reset so that border can extend all the way
@@ -66,6 +68,38 @@ a{
     font-family: 'Akkurat-Light';
     > li {
       margin-top: 5px;
+    }
+  }
+}
+
+.controls{
+  display: flex;
+  flex-direction: row;
+  .color-choice{
+    font-family: 'Akkurat-Light';
+    margin-top: 140px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid @primary-border-color;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    &:hover{
+      border: 1px solid @secondary-border-color;
+    }
+    .shape{
+      width: 20px;
+      height: 20px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      background: black;
+      margin-bottom: 10px;
     }
   }
 }
