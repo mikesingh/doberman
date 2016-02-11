@@ -1,16 +1,24 @@
 var Application = {};
 window.Application = Application;
 
+//TODO: make the class more configurable by passing in
 function UserInterface(assets, imageId, buttonClass, fullScreenButtonId) {
   this.assets = assets;
   this.imageId = imageId;
-  this.imageNode = document.getElementById(this.imageId);
   this.count = 0;
   this.buttonClass = buttonClass;
-  this.buttons = document.getElementsByClassName(buttonClass);
   this.isFullscreen = false;
+
+  //components
+  this.imageNode = document.getElementById(this.imageId);
+  this.buttons = document.getElementsByClassName(buttonClass);
   this.fullScreenButton = document.getElementById(fullScreenButtonId);
   this.cancelButton = document.getElementsByClassName('cancel-fullscreen')[0];
+  this.fullScreenHeader = document.getElementsByClassName('full-screen-header')[0];
+  this.phoneInfo = document.getElementsByClassName('phone-info')[0];
+  this.mainHeader = document.getElementsByClassName('main-header')[0];
+  this.cancelButton = document.getElementsByClassName('cancel-fullscreen')[0];
+  this.phoneDisplay = document.getElementsByClassName('phone-display')[0];
 }
 
 UserInterface.prototype.selectImage = function (imageSrc, button) {
@@ -27,32 +35,26 @@ UserInterface.prototype.removeHighlightClasses = function () {
 };
 
 UserInterface.prototype.toggleFullScreen = function () {
-  var fullScreenHeader = document.getElementsByClassName('full-screen-header')[0];
-  var phoneInfo = document.getElementsByClassName('phone-info')[0];
-  var mainHeader = document.getElementsByClassName('main-header')[0];
-  var cancelButton = document.getElementsByClassName('cancel-fullscreen')[0];
-  var phoneDisplay = document.getElementsByClassName('phone-display')[0];
-  //components to hide when full screen  link is clicked
+  var self = this;
   var uiComponents = [
-    mainHeader,
-    phoneInfo,
-    logo,
-    Application.ui.fullScreenButton
+    this.mainHeader,
+    this.phoneInfo,
+    this.fullScreenButton
   ];
 
   this.isFullscreen = !this.isFullscreen;
 
   if (this.isFullscreen) {
-    fullScreenHeader.style.display = 'block';
+    this.fullScreenHeader.style.display = 'block';
     uiComponents.forEach(function(component) {
         component.style.display = 'none';
-        phoneDisplay.style.width = '100%';
+        self.phoneDisplay.style.width = '100%';
     });
   } else {
-    fullScreenHeader.style.display = 'none';
+    this.fullScreenHeader.style.display = 'none';
     uiComponents.forEach(function(component) {
         component.style.display = 'block';
-        phoneDisplay.style.width = '50%';
+        self.phoneDisplay.style.width = '50%';
     });
   }
 };
