@@ -1,7 +1,7 @@
 var Application = {};
 window.Application = Application;
 
-//TODO: make the class more configurable by passing in
+//TODO: make the class more configurable by passing in more parameters
 function UserInterface(assets, imageId, buttonClass, fullScreenButtonId) {
   this.assets = assets;
   this.imageId = imageId;
