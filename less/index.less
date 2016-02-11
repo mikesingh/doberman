@@ -65,7 +65,8 @@ a{
   align-items: center;
   width: 50%;
   @media only screen and (max-width: 600px) {
-    width: 100%;
+    /*ensures that when fullpage is cancelled on mobile, the proper width takes hold*/
+    width: 100%!important;
   }
   .phone {
     width: 300px;
